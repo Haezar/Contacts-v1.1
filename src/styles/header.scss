@@ -1,0 +1,57 @@
+@import 'base/colors.scss';
+
+.header {
+    display: flex;
+    flex-direction: column;
+
+    &__title {
+      align-self: center;
+      font-size: 26px;
+      font-weight: 600;
+      color: $header-title-color;
+    }
+
+    &__switch {
+      &-label {
+        align-self: flex-end;
+        cursor: pointer;
+        text-indent: -9999px;
+        width: 40px;
+        height: 20px;
+        background: $header-switch-background-color;
+        display: block;
+        border-radius: 100px;
+        position: relative;
+        &:after {
+          content: '';
+          position: absolute;
+          top: 3px;
+          left: 5px;
+          width: 15px;
+          height: 15px;
+          background: $header-switch-circle-background-color;
+          border-radius: 15px;
+          transition: 0.3s;
+        }
+    
+        &:active:after {
+          width: 10px;
+        }
+      }
+      &-input {
+        height: 0;
+        width: 0;
+        visibility: hidden;
+      
+        &:checked + .header__switch-label {
+          background: $header-switch-background-color-enabled;
+        }
+      
+        &:checked + .header__switch-label:after {
+          left: calc(100% - 5px);
+          transform: translateX(-100%);
+        }
+      }
+    
+    }
+}

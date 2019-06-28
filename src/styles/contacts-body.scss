@@ -1,0 +1,9 @@
+@import 'base/fonts.scss';
+
+.contacts-body {
+    width: 45rem;
+    margin: auto;
+    padding-top:1rem;
+    font-family: $contacts-base-font;
+    font-size: 15px;
+}
