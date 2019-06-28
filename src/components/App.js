@@ -10,23 +10,11 @@ class App extends Component {
   render() { 
     return (
       <div className="contacts-body">
-        <ContactHeader 
-          isContactPage={this.props.isContactPage} 
-          dispatch={this.props.dispatch}> 
-        </ContactHeader>
-        <ContactList 
-          users={this.props.users} 
-          isContactPage={this.props.isContactPage} 
-          dispatch={this.props.dispatch}> 
-        </ContactList>
+        <ContactHeader></ContactHeader>
+        <ContactList></ContactList>
       </div>
     ) 
   }
 }
-function mapStateToProps (state) {
-  return {
-      isContactPage: state.isContactPage,
-      users: state.users
-  }
-}
-export default connect(mapStateToProps)(App);
+
+export default connect()(App);

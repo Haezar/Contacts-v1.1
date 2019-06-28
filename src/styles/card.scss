@@ -5,60 +5,60 @@
     display: flex;
     border: solid 1px $card-border-color;
     margin-top: 1rem;
+}
 
-    &__information {
-        margin-left: 1rem;
-        display: flex;
-        flex-direction: column;
-        flex-grow: 2;
-        flex-shrink: 2;
-
-        &-user {
-            &-svg {
-                position: relative;
-                top:2px;
-                left:1px;
-                margin-left: 0.7rem;
-                margin-right: 0.3rem;
-            }
-            &-status {
-                &-text {
-                    text-transform: capitalize;
-                    color: $card-text-color;
-                    font-size: 11px;
-                    font-weight: 600;
-                    position: relative;
-                    bottom: 1px;
-                }
-                &_busy{
-                    fill: $card-user-status-busy;
-                }
-                &_ready{
-                    fill: $card-user-status-ready;
-                }
-            }
-            &-name {
-                color: $card-user-name;
-                font-weight: 560;
-                letter-spacing: 0.02rem;
-                text-transform: uppercase;
-                font-size: 13px;
-            }
-        }
-        &-main-line {
-            color: $card-text-color;
-            margin-bottom: 2px;
-            font-size: 14px;
-        }
-        &-line {
-            margin-top: 0.3rem;
-            color: $card-text-color;
+.card__information {
+    margin-left: 1rem;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 2;
+    flex-shrink: 2;
+    .information-general {
+        .information-name {
+            color: $card-user-name;
             font-weight: 560;
+            letter-spacing: 0.02rem;
+            text-transform: uppercase;
             font-size: 13px;
         }
+        .information-status-text {
+            text-transform: capitalize;
+            color: $card-text-color;
+            font-size: 11px;
+            font-weight: 600;
+            position: relative;
+            bottom: 1px;
+        }
+        .information-status {
+            &--busy {
+                fill: $card-user-status-busy;
+            }
+            &--ready{
+                fill: $card-user-status-ready;
+            }
+        }
+        .information-svg {
+            position: relative;
+            top:2px;
+            left:1px;
+            margin-left: 0.7rem;
+            margin-right: 0.3rem;
+        }
     }
-
-    &__button {
+    .information-main-line {
+        color: $card-text-color;
+        margin-bottom: 2px;
+        font-size: 14px;
+    }
+    .information-line {
+        margin-top: 0.3rem;
+        color: $card-text-color;
+        font-weight: 560;
+        font-size: 13px;
+    }  
+}
+.card__controls {
+    .card__button {
         background-color: $card-button-background-color;
         border-radius: 3px;
         padding: 9px;

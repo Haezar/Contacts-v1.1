@@ -1,12 +1,13 @@
 import React, { Component } from 'react';
-import ContactCard from './ContactCard';
+import { connect } from 'react-redux';
+import ContactCard from './ContactCard/ContactCard';
+
 class ContactList extends Component {
     render() {
         let visibleUsers = [];
         this.props.users.forEach(item => {
             if (this.props.isContactPage === item.isContact){
                 visibleUsers.push(item);
-
             }
         });        
         return (
@@ -36,4 +37,11 @@ class ContactList extends Component {
         );
       } 
 }
-export default ContactList;
+const mapStateToProps = (state) => {
+    return {
+        isContactPage: state.isContactPage,
+        users: state.users
+    }
+}
+
+export default connect(mapStateToProps)(ContactList);

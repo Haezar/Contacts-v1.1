@@ -1,9 +1,10 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { connect } from 'react-redux';
 import { togglePage} from '../actions.js';
 import '../styles/header.scss';
 
 
-class ContactHeader extends Component {
+class ContactHeader extends React.Component {
     switchPage = () => {
       this.props.dispatch(togglePage());
     }
@@ -18,7 +19,7 @@ class ContactHeader extends Component {
         return (
             <div className="header">
                   {header}
-                  <input type="checkbox" id="switch" className="header__switch-input"  onChange={this.switchPage}/>
+                  <input type="checkbox" id="switch" className="header__switch-input"  onChange={this.props.switchPage}/>
                   <label className="header__switch-label"  htmlFor="switch">Toggle</label>
                   
             </div> 
@@ -26,4 +27,14 @@ class ContactHeader extends Component {
       } 
 }
 
-export default ContactHeader;
+function mapStateToProps (state) {
+    return {
+        isContactPage: state.isContactPage,
+    }
+}
+const mapDispatchToProps = dispatch => {
+    return {
+        switchPage: () => dispatch(togglePage()),
+    }
+}
+export default connect(mapStateToProps,mapDispatchToProps)(ContactHeader);
